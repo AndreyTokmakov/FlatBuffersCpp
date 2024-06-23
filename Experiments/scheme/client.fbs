@@ -1,0 +1,26 @@
+namespace my_project.client;
+
+table Request
+{
+    name:string;
+}
+
+table Response
+{
+    x:int;
+    y:int;
+    z:int;
+}
+
+union CommonMessage
+{
+    Request,
+    Response
+}
+
+table Message
+{
+    content:CommonMessage;
+}
+
+root_type Message;

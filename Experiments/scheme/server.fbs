@@ -1,0 +1,8 @@
+include "client.fbs";
+
+namespace my_project.server;
+table Response
+{
+    extra_info: string;
+    data: my_project.client.Response;
+}

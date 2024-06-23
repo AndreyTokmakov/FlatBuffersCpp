@@ -1,0 +1,42 @@
+// Example FlatBuffers schema for controlling a logging system.
+
+namespace LoggingSystem;
+
+// Enum to represent different log control commands.
+enum LogCommand: byte {
+  Start,
+  Stop,
+  Pause
+}
+
+// Request message to control the logging.
+table LogControlRequest {
+  command:LogCommand;
+}
+
+// Status of the logging system to be sent as a response.
+enum LogStatus: byte {
+  Running,
+  Stopped,
+  Paused,
+  Error // In case of an error in processing the request.
+}
+
+// Response message with the status of the logging system.
+table LogControlResponse {
+  status:LogStatus;
+  message:string; // Additional information or error message.
+}
+
+// Root type can be a union of request and response for simplicity.
+union LogMessage {
+  LogControlRequest,
+  LogControlResponse
+}
+
+table LogMessageHolder
+{
+  the_message:LogMessage;
+}
+
+root_type LogMessageHolder;
