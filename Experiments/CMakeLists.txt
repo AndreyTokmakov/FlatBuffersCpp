@@ -12,8 +12,10 @@ file(GLOB FLAT_BUFFERS_FILES ${SCHEME}/**.fbs)
 
 # For each "*.fbs" call 'flatc' command to generate .h files:
 foreach (fbs_file ${FLAT_BUFFERS_FILES})
-    # message(STATUS "CMD : ${FLAT_BUFF_COMPILER} -o ${SCHEME} --cpp ${fbs_file}")
-    execute_process(COMMAND ${FLAT_BUFF_COMPILER} -o ${SCHEME} --cpp ${fbs_file})
+    # message(STATUS "CMD : ${FLAT_BUFF_COMPILER} -o ${SCHEME} --cpp --no-prefix --scoped-enums ${fbs_file}")
+    execute_process(COMMAND ${FLAT_BUFF_COMPILER} -o ${SCHEME}
+            --cpp --no-prefix --scoped-enums --cpp-std c++17 --filename-suffix ""
+            ${fbs_file})
 endforeach (fbs_file ${FLAT_BUFFERS_FILES})
 
 # Remove 'all_headers.h' file
@@ -25,6 +27,7 @@ file(GLOB GENERATED_HEADER_FILES ${SCHEME}/**.h)
 foreach (file ${GENERATED_HEADER_FILES})
     get_filename_component(filename ${file} NAME)
     list(APPEND INCL_FILE_CONTENT "#include \"${filename}\"\n")
+    # message(STATUS "\tAdding file '${file}' to 'all_headers.h'")
 endforeach (file ${GENERATED_HEADER_FILES})
 
 # Create 'all_headers.h' file with 'INCL_FILE_CONTENT' content

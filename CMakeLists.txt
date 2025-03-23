@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.21)
 project(FlatBuffersCPP)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 26)
+add_compile_options(-c -Wall -Wextra -O3 -std=c++26)
+
 set(FLAT_BUFFERS_ROOT "/home/andtokm/DiskS/ProjectsUbuntu/Flatbuffers/flatbuffers")
 set(FLAT_BUFF_COMPILER "${FLAT_BUFFERS_ROOT}/flatc")
 
