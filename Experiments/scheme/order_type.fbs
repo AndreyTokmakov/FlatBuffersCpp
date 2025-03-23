@@ -1,0 +1,7 @@
+namespace messaging;
+
+enum OrderType : uint8 {
+    Undefined,
+    Market,
+    Limit
+}

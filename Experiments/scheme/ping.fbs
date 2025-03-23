@@ -1,0 +1,6 @@
+namespace messaging;
+
+table ping {
+    timestamp : uint64;
+    message: string;
+}
