@@ -6,7 +6,7 @@ add_compile_options(-c -Wall -Wextra -O3 -std=c++26)
 
 # 5.15 - My home Ubuntu-20.04
 if (CMAKE_SYSTEM_VERSION MATCHES "5.15")
-    set(THIRD_PARTY_DIR /home/andtokm/DiskS/ProjectsUbuntu/third_party)
+    set(FLAT_BUFFERS_ROOT "/home/andtokm/DiskS/ProjectsUbuntu/Flatbuffers/flatbuffers")
     # set(EXTRA_LIBS tbb)
 else()
     set(FLAT_BUFFERS_ROOT "/home/andtokm/Projects/FlatBuffers/flatbuffers")
