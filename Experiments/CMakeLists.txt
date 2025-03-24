@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.29)
 project(Experiments)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 26)
 set(SCHEME ${PROJECT_SOURCE_DIR}/scheme)
 set(MESSAGING ${PROJECT_SOURCE_DIR}/messaging)
 set(DEST_INCLUDE_FILE ${MESSAGING}/all_headers.h)

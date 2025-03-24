@@ -4,9 +4,15 @@ project(FlatBuffersCPP)
 set(CMAKE_CXX_STANDARD 26)
 add_compile_options(-c -Wall -Wextra -O3 -std=c++26)
 
-set(FLAT_BUFFERS_ROOT "/home/andtokm/DiskS/ProjectsUbuntu/Flatbuffers/flatbuffers")
-set(FLAT_BUFF_COMPILER "${FLAT_BUFFERS_ROOT}/flatc")
+# 5.15 - My home Ubuntu-20.04
+if (CMAKE_SYSTEM_VERSION MATCHES "5.15")
+    set(THIRD_PARTY_DIR /home/andtokm/DiskS/ProjectsUbuntu/third_party)
+    # set(EXTRA_LIBS tbb)
+else()
+    set(FLAT_BUFFERS_ROOT "/home/andtokm/Projects/FlatBuffers/flatbuffers")
+endif()
 
+set(FLAT_BUFF_COMPILER "${FLAT_BUFFERS_ROOT}/flatc")
 include_directories("${FLAT_BUFFERS_ROOT}/include")
 
 # message(STATUS "FLAT_BUFFERS_ROOT  : ${FLAT_BUFFERS_ROOT}")
